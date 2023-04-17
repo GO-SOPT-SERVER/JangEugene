@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Bank {
-    Scanner scanner = new Scanner((System.in));          // 값을 받아오고, 지정해주는 면에서 편해서 사용
+    Scanner scanner = new Scanner(System.in);          // 값을 받아오고, 지정해주는 면에서 편해서 사용
     Random random = new Random();                       // 랜덤인 계좌를 만들기 위해 import
     private static Service[] accounts = new Service[20]; // 리스트 생성
     private static int index = 0;
