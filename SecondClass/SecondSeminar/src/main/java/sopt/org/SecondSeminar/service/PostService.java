@@ -37,10 +37,9 @@ public class PostService {
 
     public String getByTitle(String title) {    // 찾는 제목을 포함하는 게시물을 찾는 메서드
         ArrayList<String> titlePost = new ArrayList<>();    // 일회성 Array를 만들어주고 싶었습니다.
-        for(int i = 0 ; i < postList.size() ; i++) {
-            Post post = postList.get(i);
-            if (post.getTitle().contains(title)){           // 검색한 String과 일치하는 타이틀 조건
-                titlePost.add(post.toString());             // id,title,content 모두 나오게 설정
+        for(Post post: postList) {
+            if (post.getTitle().contains(title)){
+                titlePost.add(post.toString());
             }
         }
         return "해당 제목을 포함하는 게시물: " + titlePost;
