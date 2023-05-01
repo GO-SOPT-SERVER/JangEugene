@@ -17,6 +17,11 @@ public class Post { // 하나의 엔티티 Post 라는 테이블에서 세가지
         this.id = id;
     }
 
+    public void setTitle(String title) {this.title = title;}
+
+    public void setContent(String content) {this.content = content;}
+
+
     @Override
     public String toString(){
         return "id: " + this.id + "\n" +
