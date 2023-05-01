@@ -2,9 +2,7 @@ package sopt.org.SecondSeminar.service;
 
 import org.springframework.stereotype.Service;
 import sopt.org.SecondSeminar.controller.post.dto.request.SaveRequestDto;
-import sopt.org.SecondSeminar.controller.post.dto.request.UpdateRequestDto;
 import sopt.org.SecondSeminar.domain.post.Post;
-import sopt.org.SecondSeminar.domain.user.User;
 
 import java.util.ArrayList;
 
@@ -47,22 +45,9 @@ public class PostService {
         return "해당 제목을 포함하는 게시물: " + titlePost;
     }
 
-    public String updatePost(Long UserId, UpdateRequestDto requestDto) {
-        Post post = postList.get(UserId.intValue() - 1);
-        post.setContent(requestDto.getContent()); // UpdateRequestDto에서 받은것을 post에서 할당
-        post.setTitle(requestDto.getTitle());
+    }; // 조회 함수를 새로 만들어서 역할 위임하는 거
 
-        return "게시물 수정 완료: " + post;
-    }
-
-    public String deletePost(Long UserId) {
-        if (UserId -1 >= postList.size()) { // 유저 아이디가 postList안에 존재하지 않을때
-            return "삭제할 글이 존재하지 않습니다";
-        }
-        postList.remove(UserId.intValue() - 1); // 해당 post 삭제
-        return "게시물 삭제 완료";
-
-    }
-
-    };
+    //controller, service >> 이해됨
+    // Application, domain
+    //
 
