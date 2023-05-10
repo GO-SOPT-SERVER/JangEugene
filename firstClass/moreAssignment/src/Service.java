@@ -11,7 +11,7 @@ class Service{
         this.name = name;
         this.budget = budget;
     }
-
+    public void setBudget(int budget){this.budget = budget;}
     public int getBudget(){ // 잔액
         return budget;
     }
@@ -29,20 +29,29 @@ class Service{
             System.out.println("금액이 0이거나 0보다 작습니다.");
             return;
         }
-        budget += money;
+        setBudget(budget+money);
+        System.out.println(money + "원을 출금했습니다. 현재 잔고는 "+ budget+"원 입니다.");
     }
 
-    public void withdraw(int money) {
-        if (money > budget){                                // 출금 금액이 현재 잔액보다 클 경우 출금 불가
-            int outMoney = money-budget;
-            System.out.println("출금 금액이 잔고보다 커, 빠질 수 있는 금액만 빠졌습니다. 빠진 금액: "+ outMoney );
-            budget = 0;
-            return;
-        } if(money <= 0){
-            System.out.println("0 이하의 금액은 출금할 수 없습니다.");
-            return;
-        }else {
-            budget -= money;
+    public void withdraw() {
+        Scanner sc = new Scanner(System.in);
+
+        while (true){
+            System.out.print("출금할 금액: ");
+            int money = sc.nextInt();
+
+            if (money > budget) {                                // 출금 금액이 현재 잔액보다 클 경우 출금 불가
+                System.out.println("출금 금액이 잔고보다 큽니다. 현재 잔고는 " + budget + "원 입니다.");
+                break;
+            }
+            else if (money <= 0) {
+                System.out.println("0 이하의 금액은 출금할 수 없습니다. 현재 잔고는 \" + budget + \"원 입니다.");
+                break;
+            } else {
+                setBudget(budget - money);
+                System.out.println(money + "원을 출금했습니다. 현재 잔고는 " + budget + "원 입니다.");
+                break;
+            }
         }
     }
     public String getAccountNumber() {                      // 계좌 정보를 불러옴
