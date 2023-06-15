@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public enum ErrorStatus {
+public enum ErrorStatus { // 응답을 어떻게 할지 정하는 거
 
     /*
     BAD_REQUEST

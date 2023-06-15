@@ -25,5 +25,5 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<ApiResponseDto<UserResponseDto>> create(@RequestBody @Valid final UserRequestDto request) {
         return new ResponseEntity<>(ApiResponseDto.success(SuccessStatus.SIGNUP_SUCCESS, userService.create(request)), HttpStatus.CREATED);
-    }
+    } // Dto를 뿌려주는데 @controller 뷰를 뿌려줌 => html 파일 , @'Rest'Controller는 이 객체를 그대로 Json으로 키 값으로 만들어줌
 }
