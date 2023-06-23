@@ -26,8 +26,8 @@ public class PostService {
         return newPost.getId();
         }
 
-    public String getPostInfo(Long UserId) { // 아이디로 글을 찾는 메서드
-        Post post = postList.get(UserId.intValue() - 1);
+    public String getPostInfo(Long userId) { // 아이디로 글을 찾는 메서드
+        Post post = postList.get(userId.intValue() - 1);
         Post postInfo = new Post(            // title과 content만 불러오고 싶어서 따로 만들었습니다.
                 post.getTitle(),
                 post.getContent()
@@ -45,19 +45,19 @@ public class PostService {
         }
         return "해당 제목을 포함하는 게시물: " + titlePost;
     }
-    public String updatePost(Long UserId, UpdateRequestDto requestDto) {
-        Post post = postList.get(UserId.intValue() - 1);
+    public String updatePost(Long userId, UpdateRequestDto requestDto) {
+        Post post = postList.get(userId.intValue() - 1);
         post.setContent(requestDto.getContent()); // UpdateRequestDto에서 받은것을 post에서 할당
         post.setTitle(requestDto.getTitle());
 
         return "게시물 수정 완료: " + post;
     }
 
-    public String deletePost(Long UserId) {
-        if (UserId -1 >= postList.size()) { // 유저 아이디가 postList안에 존재하지 않을때
+    public String deletePost(Long userId) {
+        if (userId -1 >= postList.size()) { // 유저 아이디가 postList안에 존재하지 않을때
             return "삭제할 글이 존재하지 않습니다";
         }
-        postList.remove(UserId.intValue() - 1); // 해당 post 삭제
+        postList.remove(userId.intValue() - 1); // 해당 post 삭제
         return "게시물 삭제 완료";
 
     }

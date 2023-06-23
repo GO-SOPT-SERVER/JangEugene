@@ -7,7 +7,7 @@ import sopt.org.SecondSeminar.controller.post.dto.request.UpdateRequestDto;
 import sopt.org.SecondSeminar.service.PostService;
 import static sopt.org.SecondSeminar.SecondSeminarApplication.postList;
 
-@RestController
+@RestController               // Json 형태로 객체 반환 @Controller + @RequestBody
 @RequiredArgsConstructor
 @RequestMapping("/api/v1") // api 버전 처리
 
